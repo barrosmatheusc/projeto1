@@ -7,18 +7,30 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+{% set menssagem = get_flashed_messages() %}
+{% if  menssagem  %}
+    <div class="alerta">
+        {{menssagem[0]}}
+    </div>
+{% endif %}
+
     <h1 id="titulo">Aluguei Palmeira</h1>
     <div id="centro">
         <div id="tela-login">
-            <form action="/templates/login.html" id="login" method="post"></form>
+            <form action="/login" id="login" method="post">
                 <label for="nome" id="nome">Usuário/Número</label>
                 <input type="text" name="nome" class="digitado" required placeholder="Digite seu nome">
                 <label for="senha" id="senha">Senha</label>
                 <input type="password" name="senha" required class="digitado" placeholder="Digite sua senha">
-                <button type="submit" id="botao-entrar" name="entrar">ENTRAR</button>
+                <label for="cadastro" id="cadastre-se">Cadastre-se</label>
+                <button type="submit" id="botao-entrar">ENTRAR</button>
+            </form>
         </div>
     </div>
 
+<footer>
+    <h3 id="rodape">Site Criado por <a href="#">Matheus de Barros</a></h3>
+</footer>
 
 </body>
 </html>
